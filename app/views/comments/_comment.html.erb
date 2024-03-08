@@ -1,3 +1,4 @@
+<%= notice %>
 <li class="list-group-item">
   <div class="d-flex">
     <div class="flex-shrink-0">
@@ -9,14 +10,17 @@
       </h5>
       <p><%= comment.body %></p>
     </div>
+      <% if current_user == comment.author %>
+
     <div>
       <%= link_to edit_comment_path(comment), class: "btn btn-link btn-sm text-muted" do %>
         <i class="fas fa-edit fa-fw"></i>
       <% end %>
 
-      <%= link_to comment, data: { turbo_method: :delete }, class: "btn btn-link btn-sm text-muted" do %>
+      <%= link_to comment.destroy, data: { turbo_method: :delete }, class: "btn btn-link btn-sm text-muted" do %>
         <i class="fas fa-trash fa-fw"></i>
       <% end %>
     </div>
   </div>
 </li>
+<% end %>
