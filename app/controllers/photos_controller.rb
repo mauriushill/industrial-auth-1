@@ -61,6 +61,7 @@ class PhotosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
     def set_photo
       @photo = Photo.find(params[:id])
     end
@@ -73,7 +74,7 @@ class PhotosController < ApplicationController
 
     def ensure_user_is_authorized
       if !PhotoPolicy.new(current_user, @photo).show?
-        redirect_back fallback_location: root_url
+        raise Pundit::NotAuthorizedError, "not allowed"
       end
     end
 
