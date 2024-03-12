@@ -6,10 +6,14 @@ class UserPolicy
     @user = user
   end
 
-  def show?
+  def nav?
     user == current_user ||
-     !user.private? || 
-     user.followers.include?(current_user)
+    !user.private? || 
+    user.followers.include?(current_user)
+  end
+  
+  def show?
+    true
   end
 
   def feed?
@@ -21,7 +25,7 @@ class UserPolicy
   end
 
   def liked?
-    feed?
+    nav?
   end
 
 end
