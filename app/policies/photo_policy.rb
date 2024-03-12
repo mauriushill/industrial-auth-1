@@ -11,12 +11,19 @@ attr_reader :user, :photo
     !photo.owner.private? ||
     photo.owner.followers.include?(user)
   end
-
-  def index?
-    true
+  
+  def edit?
+    user == photo.owner
   end
 
-  def show?
-    true
+  def destroy?
+    edit?
+  end
+
+  def update?
+    edit?
+  end
+  def create?
+    true 
   end
 end

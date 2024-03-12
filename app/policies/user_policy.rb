@@ -11,7 +11,17 @@ class UserPolicy
      !user.private? || 
      user.followers.include?(current_user)
   end
-  def index?
-    true
+
+  def feed?
+    user == current_user
   end
+
+  def discover?
+    feed?
+  end
+
+  def liked?
+    feed?
+  end
+
 end
