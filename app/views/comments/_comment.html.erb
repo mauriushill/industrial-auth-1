@@ -11,7 +11,7 @@
     </div>
       
 
-      <% if current_user == comment.author %>
+      <% if current_user == comment.owner %>
 
     <div>
       <%= link_to edit_comment_path(comment), class: "btn btn-link btn-sm text-muted" do %>
