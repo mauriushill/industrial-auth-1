@@ -27,5 +27,9 @@ class UserPolicy
   def liked?
     nav?
   end
+  
+  def pending?
+    feed?
+  end
 
 end
