@@ -20,7 +20,7 @@ class CommentPolicy < ApplicationPolicy
 
     def destroy?
       user == comment.author ||
-      user
+      user == comment.owner
       
     end
 
