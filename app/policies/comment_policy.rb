@@ -4,12 +4,14 @@ class CommentPolicy < ApplicationPolicy
     def initialize(user, comment)  
       @user = user
       @comment = comment
+      
     end
 
     
 
     def edit?
       user == comment.author
+    
     end
 
     def update?
@@ -17,10 +19,13 @@ class CommentPolicy < ApplicationPolicy
     end
 
     def destroy?
-      edit?
+      user == comment.author ||
+      user
+      
     end
 
     def create?
       true
     end
+
   end
