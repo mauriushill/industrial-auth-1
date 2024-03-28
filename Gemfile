@@ -80,6 +80,7 @@ gem "appdev_support"
 gem "awesome_print"
 gem "devise"       # to be removed
 gem "dotenv-rails"
+gem "pundit", "~> 2.3"
 gem "faker"
 gem "htmlbeautifier"
 gem "http"
