@@ -48,7 +48,8 @@
 
         <% end %>
       </div>
-
+      
+      <% if policy(@user).pending?%>
       <div class="col">
         <%=
           link_to "#",
@@ -64,6 +65,7 @@
           pending
 
         <% end %>
+      <% end %>
       </div>
     </div>
 
